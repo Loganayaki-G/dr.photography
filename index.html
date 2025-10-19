@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dr. Photography — Home</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="site-header bg-transparent py-3">
+    <nav class="container d-flex align-items-center gap-3">
+      <div class="d-flex align-items-center gap-3">
+        <img src="images/logo.png" alt="Dr. Photography Logo" class="logo">
+        <div>
+          <h1 class="site-title mb-0">Dr. Photography</h1>
+          <small class="text-muted">Capturing timeless memories with creative precision and a personal touch.</small>
+        </div>
+      </div>
+
+      <ul class="nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Theme selector -->
+      <div class="ms-3" title="Theme">
+        <select id="themeSelect" class="form-select form-select-sm theme-select" aria-label="Theme select">
+          <option value="black-gold">Dark</option>
+          <option value="white-blue">Light</option>
+          <option value="brown-cream">Warm</option>
+        </select>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Sliding Gallery Carousel -->
+  <div class="sliding-carousel my-4 overflow-hidden rounded shadow-sm">
+    <div class="carousel-track d-flex">
+      <!-- JS will insert images here -->
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <main class="container py-4">
+    <div class="row align-items-center gy-4">
+      <div class="col-lg-6">
+        <div class="card p-4 shadow-sm">
+          <h2 class="mb-3">Professional photography & videography<br>Tailored to your moments</h2>
+          <p class="lead my-3">Dr. Photography (Owner: Mr. M. Raja) provides event & outdoor photography, album creation, photo frames and professional edits. We blend creative vision with technical excellence to preserve your memories.</p>
+
+          <ul class="list-unstyled mt-3">
+            <li><strong>Phone:</strong> <a href="tel:+919080057005">+91 9080057005</a></li>
+            <li><strong>Address:</strong> 4F Perumal W Car Street, Palayamkottai, Tirunelveli - 627002</li>
+            <li><strong>Email:</strong> <a href="mailto:dr.photographytvl@gmail.com">dr.photographytvl@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card p-3 shadow-sm">
+          <h3 class="mb-3">Enquiry Form</h3>
+
+          <form id="enquiryForm" class="needs-validation" novalidate>
+            <div class="mb-2">
+              <label for="name" class="form-label">Your name</label>
+              <input required type="text" id="name" name="name" class="form-control" placeholder="Full name">
+              <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+
+            <div class="mb-2">
+              <label for="phone" class="form-label">Phone number</label>
+              <input required type="tel" id="phone" name="phone" class="form-control" placeholder="+91 9xxxxxxxxx">
+              <div class="invalid-feedback">Please enter a phone number we can contact.</div>
+            </div>
+
+            <div class="mb-2">
+              <label for="requirement" class="form-label">Requirement / Message</label>
+              <textarea required id="requirement" name="requirement" rows="4" class="form-control" placeholder="Describe what you need to know about our services"></textarea>
+              <div class="invalid-feedback">Tell us what you need so we can respond properly.</div>
+            </div>
+
+            <div class="d-flex gap-2 align-items-center">
+              <button id="submitBtn" class="btn btn-primary">Submit Enquiry</button>
+              <button id="whatsappBtn" type="button" class="btn btn-outline-success"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</button>
+            </div>
+
+            <div id="formMessage" class="mt-3" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Short gallery preview -->
+    <div class="mt-5">
+      <h4>Featured shots</h4>
+      <div class="row g-2">
+        <!-- 4 small samples that link to gallery -->
+        <div class="col-6 col-md-3"><a href="gallery.html"><img src="images/sample1.png" class="img-fluid rounded" alt=""></a></div>
+        <div class="col-6 col-md-3"><a href="gallery.html"><img src="images/sample2.png" class="img-fluid rounded" alt=""></a></div>
+        <div class="col-6 col-md-3"><a href="gallery.html"><img src="images/sample10.png" class="img-fluid rounded" alt=""></a></div>
+        <div class="col-6 col-md-3"><a href="gallery.html"><img src="images/sample11.png" class="img-fluid rounded mt-3" alt=""></a></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="py-4 text-center small">
+    <div class="container">© <strong>Dr. Photography</strong> — Mr. M. Raja • Palayamkottai, Tirunelveli • <a href="contact.html">Contact</a></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const carouselTrack = document.querySelector('.carousel-track');
+  if (!carouselTrack) return;
+
+  const images = [];
+  for (let i = 1; i <= sample_count; i++) {
+    images.push(`images/sample${i}.png`);
+  }
+
+  // Append images twice for smooth infinite slide
+  [...images, ...images].forEach(src => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = "Gallery sample";
+    carouselTrack.appendChild(img);
+  });
+});
+
+
+  </script>
+</body>
+</html>
