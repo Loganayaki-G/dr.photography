@@ -1,0 +1,189 @@
+:root {
+  --bg: #08070a;
+  --text: #f8f7f6;
+  --muted: rgba(255, 255, 255, 0.75);
+  --accent: #d6b76d;
+  /* gold for black-gold theme default */
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.06);
+  --logo-size: 64px;
+}
+
+/* Theme classes will override variables */
+body {
+  background: linear-gradient(180deg, var(--bg) 0%, #0b0b10 70%);
+  color: var(--text);
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Light background for white-blue */
+.theme-white-blue {
+  --bg: #f9fbff;
+  --text: #0b1220;
+  --muted: #5b6777;
+  --shadow: #5b677793;
+  --accent: #0d6efd;
+  --card-bg: rgba(13, 110, 253, 0.03);
+  --card-border: rgba(13, 110, 253, 0.08);
+  background: linear-gradient(180deg, var(--bg) 0%, #eef5ff 70%);
+}
+
+/* Black & Gold */
+.theme-black-gold {
+  --bg: #071018;
+  --text: #f6efe6;
+  --muted: rgba(246, 239, 230, 0.8);
+  --shadow: #f6efe6a9;
+  --accent: #d6b76d;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.05);
+}
+
+/* Brown & Cream */
+.theme-brown-cream {
+  --bg: #fff7f0;
+  --text: #2b1f18;
+  --muted: #7a6a60;
+  --shadow: #7a6a60a8;
+  --accent: #b57a57;
+  --card-bg: rgba(0, 0, 0, 0.02);
+  --card-border: rgba(0, 0, 0, 0.05);
+  background: linear-gradient(180deg, var(--bg) 0%, #fff2e8 70%);
+}
+
+/* Header / logo */
+.site-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.logo {
+  width: var(--logo-size);
+  height: var(--logo-size);
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 8px  var(--shadow);
+}
+
+/* cards and layout */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text);
+  box-shadow: 0 0 8px  var(--shadow);
+}
+
+/* buttons */
+.btn-primary {
+  background: var(--accent);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* small helpers */
+.text-muted {
+  color: var(--muted) !important;
+}
+
+/* responsive tweaks */
+@media (max-width: 768px) {
+  .logo {
+    --logo-size: 56px;
+  }
+
+  .site-title {
+    font-size: 1.05rem;
+  }
+}
+
+/* ensure form message styling */
+#formMessage {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.gallery-thumb {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;   
+  background: var(--bg); 
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px 0  var(--shadow);
+}
+
+
+/* index sliding images design start */
+.sliding-carousel {
+  height: 60vh; /* full hero height */
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--card-border);
+}
+
+.carousel-track {
+  display: flex;
+  gap: 8px;
+  width: max-content; /* ensures all images are inline */
+  animation: slide 30s linear infinite; /* slower for smooth sliding */
+}
+
+.carousel-track img {
+  height: 50vh;
+  width: auto;          /* preserve aspect ratio */
+  border-radius: 8px;
+  object-fit: cover;    /* cover div height */
+}
+
+/* Slide animation: moves full track width */
+@keyframes slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* translate half track for seamless loop */
+}
+
+/* index sliding images design end */
+
+
+/* code to put menu in next line for mobiles */
+@media (max-width: 768px) {
+  .site-header nav {
+    flex-direction: column; /* stack items vertically */
+    align-items: flex-start; /* align left */
+  }
+
+  .site-header .nav {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;       /* allow menu items to wrap */
+    margin-top: 0.5rem;
+  }
+
+  .site-header .nav-link {
+    padding: 0.25rem 0.5rem;
+  }
+
+  .site-header .ms-3 {
+    position: absolute;
+    top: 5px;
+    float: right;
+    right: 5px;
+  }
+
+  .site-header .logo {
+    width: 48px; /* smaller logo for mobile */
+    height: 48px;
+  }
+
+  .site-title {
+    font-size: 1rem;
+  }
+
+  
+}
+
+.nav-item
+{
+  box-shadow: 0 0 8px  var(--shadow);
+  color: var(--accent);
+  border-radius: 5px;
+  margin: 5px;
+}
+
